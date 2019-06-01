@@ -1,10 +1,10 @@
-#Swift Data Structures
+# Swift Data Structures
 ***
-##Linked List
+## Linked List
 ```LinkedList.playground``` is a playground file which can be opened by Xcode 10.2.1.  
 For linux, type this into terminal
 ```cd LinkedList.playground/ ; swift Contents.swift```
-###Class Diagram
+### Class Diagram
 ___
 |Node 			 							|
 |-----			 							|
@@ -25,7 +25,7 @@ ___
 |+ Search(forValue Val : Int) -> Bool|
 |+ Update(Value source : Int, toValue destination : Int) -> Bool|
 
-###Features of this LinkedList
+### Features of this LinkedList
 ___
 * Singly Linked List.
 * Each node in the Linked List is a node with unique data point.
