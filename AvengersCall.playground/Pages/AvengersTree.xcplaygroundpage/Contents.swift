@@ -17,10 +17,13 @@ class AvengersTree {
     let Heroes = ["SUPERMAN", "THOR", "ROBIN", "IRONMAN", "GHOSTRIDER", "CAPTAINAMERICA", "FLASH", "WOLVERINE", "BATMAN", "HULK", "BLADE", "PHANTOM", "SPIDERMAN", "BLACKWIDOW", "HELLBOY", "PUNISHER", "ANNAWILLIAMS"]
     
     func GenerateHeroTree() {
+        var LevelNodes = [String : Node]()
         Root = Node.init(for: "0")
         let TreeRoot = Node.init(for: " ")
         Root!.Children[" "] = TreeRoot
         for hero in Heroes {
+            var level = 2
+            var huristic = 9
             var temp = TreeRoot
             var child = ""
             for character in hero {
@@ -36,12 +39,21 @@ class AvengersTree {
                 default: fatalError("No button for that.")
                 }
                 if let _ = temp.Children[child] {} else {
-                    temp.Children[child] = Node.init(for: child)
+                    if let _ = LevelNodes["\(level) \(child)"] {
+                        temp.Children[child] = LevelNodes["\(level) \(child)"]
+                    } else {
+                        let Child = Node.init(for: child)
+                        temp.Children[child] = Child
+                        LevelNodes["\(level) \(child)"] = Child
+                    }
                 }
+                huristic += Int(child)!
                 temp = temp.Children[child]!
+                level += 1
             }
-            temp.Children["0"] = Node.init(for: hero)
+            temp.Children["\(huristic)"] = Node.init(for: hero)
         }
+        print(LevelNodes.count)
     }
     
     func TraverseTree(from Root: Node) {
@@ -55,14 +67,17 @@ class AvengersTree {
     
     func FindHero(for Code : String) -> String {
         var temp = Root
-        
+        var huristic = 9
         for character in String(Code.dropFirst()) {
             if let tempUnravelled = temp {
                 temp = tempUnravelled.Children[String(character)]
             }
+            if String(character) != " " {
+                huristic += Int(String(character))!
+            }
         }
         if let temp = temp {
-            if let hero = temp.Children["0"] {
+            if let hero = temp.Children["\(huristic)"] {
                 return hero.Data
             }
         }
@@ -79,8 +94,6 @@ class AvengersTree {
 
 
 let HeroCentre = AvengersTree.init()
-
-HeroCentre.TraverseTree(from: HeroCentre.Root!.Children[" "]!)
 
 print(HeroCentre.FindHero(for: "0 4766626"))
 print(HeroCentre.FindHero(for: "0 4855"))
