@@ -1,7 +1,8 @@
 import Foundation
 
 class Avengers {
-    let heroes = ["SUPERMAN", "THOR", "ROBIN", "IRONMAN", "GHOSTRIDER", "CAPTAINAMERICA", "FLASH", "WOLVERINE", "BATMAN", "HULK", "BLADE", "PHANTOM", "SPIDERMAN", "BLACKWIDOW", "HELLBOY", "PUNISHER", "ANNAWILLIAMS"]
+    var heroes = ["SUPERMAN", "THOR", "ROBIN", "IRONMAN", "GHOSTRIDER", "CAPTAINAMERICA", "FLASH", "WOLVERINE", "BATMAN", "HULK", "BLADE", "PHANTOM", "SPIDERMAN", "BLACKWIDOW", "HELLBOY", "PUNISHER", "ANNAWILLIAMS"]
+    
     var HeroTrueCaller = [String : String]() // [Diler Number : Hero]() diary.
     
     func GenerateHeroDiary() {
@@ -27,6 +28,7 @@ class Avengers {
         print(HeroTrueCaller)
     }
     
+    
     func GetHero(for Code: String) -> String {
         if let hero = HeroTrueCaller[Code] {
             return hero
@@ -43,7 +45,6 @@ class Avengers {
 }
 
 var Avg = Avengers.init()
-
 Avg.GetHero(for: "0 4766626")
 Avg.GetHero(for: "0 4855")
 Avg.GetHero(for: "0 774337626")

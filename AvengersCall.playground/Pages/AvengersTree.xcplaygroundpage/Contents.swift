@@ -53,7 +53,7 @@ class AvengersTree {
             }
             temp.Children["\(huristic)"] = Node.init(for: hero)
         }
-        print(LevelNodes.count)
+        print("\(LevelNodes.count) nodes created")
     }
     
     func TraverseTree(from Root: Node) {
