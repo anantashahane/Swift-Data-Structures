@@ -38,6 +38,6 @@ Q. Write a code, that would return the name of the super hero corrosponding to t
 
 A. Easy and boring way: Create a dictionary od [String : String], with T9 as the key, and name as the value. Refer AvengersDictionary
 
-Interesting Way : Create a tree which will always be 26 or less node wide, and will be as tall as the longest name. Use huristic to save and retrive the Hero node.
+Interesting Way : Create a tree which will always be 8 or less node wide, and will be as tall as the longest name. Use huristic to save and retrive the Hero node.
 
 ![DataStructure](https://github.com/Ananta11/Swift-Data-Structures/raw/master/Common/Tree.png)
